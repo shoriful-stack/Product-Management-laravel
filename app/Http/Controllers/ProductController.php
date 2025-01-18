@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Product;
@@ -12,7 +11,6 @@ class ProductController extends Controller
     {
         $query = Product::query();
 
-        // Search functionality
         if ($request->search) {
             $query->where('product_id', 'like', "%{$request->search}%")
                   ->orWhere('name', 'like', "%{$request->search}%")
@@ -20,13 +18,11 @@ class ProductController extends Controller
                   ->orWhere('price', $request->search);
         }
 
-        // Sorting functionality
         if ($request->sort_by) {
             $query->orderBy($request->sort_by, $request->order ?? 'asc');
         }
 
         $products = $query->paginate(10);
-
         return view('products.index', compact('products'));
     }
 
