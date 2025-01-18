@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Product Management')</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Include Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <!-- Navigation Bar -->
-        <a href="{{ route('products.index') }}">Products</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('products.index') }}">Product Management</a>
+        </div>
     </nav>
 
-    <main>
+    <!-- Main Content -->
+    <main class="container my-5">
         @yield('content')
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-light">
         <p>&copy; 2025 Product Management</p>
     </footer>
+
+    <!-- Include Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
